@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package aiops;
+
+option java_package = "io.aiops.rpc";
+option java_multiple_files = true;
+
+service Worker {
+  rpc Dispatch (DispatchRequest) returns (DispatchReply);
+}
+
+message DispatchRequest {
+  string run_id = 1;
+  string task_id = 2;
+  int32 attempt = 3;
+  string kind = 4;
+  string input_json = 5;
+  int32 timeout_seconds = 6;
+  string tenant_id = 7;
+}
+
+message DispatchReply {
+  bool accepted = 1;
+  string reason = 2;
+}

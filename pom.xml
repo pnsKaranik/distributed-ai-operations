@@ -22,6 +22,7 @@
 
     <modules>
         <module>contracts</module>
+        <module>platform-support</module>
     </modules>
 
     <properties>
